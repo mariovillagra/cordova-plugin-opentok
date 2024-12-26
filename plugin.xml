@@ -35,7 +35,7 @@
           <param name="onload" value="true" />
         </feature>
       </config-file>  
-      <dependency id="cordova-androidx-build" />
+      
 
       
     </platform>
