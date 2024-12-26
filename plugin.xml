@@ -26,8 +26,7 @@
         <uses-feature android:name="android.hardware.camera" android:required="true" />
         <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
       </config-file>
-        <dependency id="cordova-androidx-build" url="https://github.com/cmfsotelo/cordova-androidx-build.git#1.0-OS.1" />
-
+    
       <!-- copy opentok sdk -->
 
       <config-file target="config.xml" parent="/*">
@@ -36,6 +35,8 @@
           <param name="onload" value="true" />
         </feature>
       </config-file>  
+      <dependency id="cordova-androidx-build" />
+
       
     </platform>
 
