@@ -371,17 +371,22 @@ public class OpenTokAndroidPlugin extends CordovaPlugin
         }
 
         public void removeStreamView() {
-            ViewGroup parent = (ViewGroup) webView.getView().getParent();
-            parent.removeView(this.mView);
-            if(mSubscriber != null) {
+            cordova.getActivity().runOnUiThread(() -> {
                 try {
-                    mSession.unsubscribe(mSubscriber);
-                    mSubscriber.destroy();
-                } catch(Exception e) {
-                    Log.i(TAG, "Could not unsubscribe Subscriber");
-                }
+                    ViewGroup parent = (ViewGroup) webView.getView().getParent();
+                    if (parent != null && this.mView != null) {
+                        parent.removeView(this.mView);
+                    }
+                    if (mSubscriber != null) {
+                        mSession.unsubscribe(mSubscriber);
+                        mSubscriber.destroy();
+                    }
+                } catch (Exception e) {
+                    Log.i(TAG, "Error while trying to remove stream view: " + e.getMessage());
             }
-        }
+    });
+}
+
 
         public void run() {
             if(this.mView == null) {
