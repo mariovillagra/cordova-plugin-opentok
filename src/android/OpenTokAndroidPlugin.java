@@ -381,7 +381,7 @@ public class OpenTokAndroidPlugin extends CordovaPlugin
                     Log.i(TAG, "Could not unsubscribe Subscriber");
                 }
             }
-            cordova.getActivity().runOnUiThread(this);
+            //cordova.getActivity().runOnUiThread(this);
         }
 
         public void run() {
